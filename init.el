@@ -41,6 +41,17 @@
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
+(defun stack-compile ()
+  "Run 'stack build' in a compilation buffer."
+  (interactive)
+  (compile "stack build"))
+
+(defun stack-exec (target)
+  "Run 'stack build' and then 'stack exec' on the specified
+target, in a compilation buffer."
+  (interactive "M'stack exec' target: ")
+  (compile (format "stack build && stack exec %s" target)))
+
 ;; ----------------------------------------------------------------------
 ;; R (and related):
 ;; ----------------------------------------------------------------------
