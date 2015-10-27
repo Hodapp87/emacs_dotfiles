@@ -3,6 +3,16 @@
              '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;; This installs all the packages needed elsewhere.  A better way
+;; probably exists to do this...
+(defun install-all-packages ()
+  (interactive)
+  (package-refresh-contents)
+  (package-install 'haskell-mode)
+  (package-install 'markdown-mode)
+  (package-install 'ess)
+  )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
