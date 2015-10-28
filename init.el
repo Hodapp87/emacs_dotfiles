@@ -32,7 +32,7 @@
 (setq-default menu-bar-mode nil)
 (setq line-number-mode t)
 (setq column-number-mode t)
-(setq show-paren-mode t)
+(show-paren-mode 1)
 (setq inhibit-startup-screen t)
 
 ;; ----------------------------------------------------------------------
