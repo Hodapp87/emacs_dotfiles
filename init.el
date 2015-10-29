@@ -11,6 +11,7 @@
   (package-install 'haskell-mode)
   (package-install 'markdown-mode)
   (package-install 'ess)
+  (package-install 'weechat)
   )
 
 (custom-set-variables
@@ -85,5 +86,12 @@ target, in a compilation buffer."
 (setq-default c-basic-offset 4)
 (setq-default c-default-style "linux")
 (setq python-indent-offset 4)
+
+;; ----------------------------------------------------------------------
+;; WeeChat client:
+;; ----------------------------------------------------------------------
+(require 'weechat)
+(require 'gnutls)
+(add-to-list 'gnutls-trustfiles (expand-file-name "~/.emacs.d/relay.pem"))
 
 (server-start)
