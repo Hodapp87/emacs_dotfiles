@@ -24,6 +24,12 @@
 )
 
 ;; ----------------------------------------------------------------------
+;; Local elisp files
+;; ----------------------------------------------------------------------
+;; From http://www.emacswiki.org/emacs/download/newpaste.el:
+(load-file "newpaste.el")
+
+;; ----------------------------------------------------------------------
 ;; Style stuff
 ;; ----------------------------------------------------------------------
 (load-theme 'deeper-blue)
@@ -93,5 +99,6 @@ target, in a compilation buffer."
 (require 'weechat)
 (require 'gnutls)
 (add-to-list 'gnutls-trustfiles (expand-file-name "~/.emacs.d/relay.pem"))
+
 
 (server-start)
