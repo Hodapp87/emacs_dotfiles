@@ -12,6 +12,7 @@
   (package-install 'markdown-mode)
   (package-install 'ess)
   (package-install 'weechat)
+  (package-install 'geiser)
   )
 
 (custom-set-variables
@@ -27,7 +28,7 @@
 ;; Local elisp files
 ;; ----------------------------------------------------------------------
 ;; From http://www.emacswiki.org/emacs/download/newpaste.el:
-(load-file "newpaste.el")
+(load "~/.emacs.d/newpaste.el")
 
 ;; ----------------------------------------------------------------------
 ;; Style stuff
@@ -85,6 +86,14 @@ target, in a compilation buffer."
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; ----------------------------------------------------------------------
+;; Guile:
+;; ----------------------------------------------------------------------
+(defun guile-geiser ()
+  "Run Geiser using Guile."
+  (interactive)
+  (run-geiser guile))
+
+;; ----------------------------------------------------------------------
 ;; Code style:
 ;; ----------------------------------------------------------------------
 (setq-default indent-tabs-mode nil)
@@ -97,7 +106,10 @@ target, in a compilation buffer."
 ;; WeeChat client:
 ;; ----------------------------------------------------------------------
 (require 'weechat)
+(require 'weechat-notifications)
+(require 'notifications)
 (require 'gnutls)
+(setq weechat-notification-mode t)
 (add-to-list 'gnutls-trustfiles (expand-file-name "~/.emacs.d/relay.pem"))
 
 
