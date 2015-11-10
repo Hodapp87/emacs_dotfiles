@@ -91,7 +91,7 @@ target, in a compilation buffer."
 (defun guile-geiser ()
   "Run Geiser using Guile."
   (interactive)
-  (run-geiser guile))
+  (run-geiser 'guile))
 
 ;; ----------------------------------------------------------------------
 ;; Code style:
