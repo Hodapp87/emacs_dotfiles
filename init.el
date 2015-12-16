@@ -29,6 +29,7 @@
 ;; ----------------------------------------------------------------------
 ;; From http://www.emacswiki.org/emacs/download/newpaste.el:
 (load "~/.emacs.d/newpaste.el")
+(load "~/.emacs.d/org-invoice.el")
 
 ;; ----------------------------------------------------------------------
 ;; Style stuff
