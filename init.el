@@ -13,6 +13,7 @@
   (package-install 'ess)
   (package-install 'weechat)
   (package-install 'geiser)
+  (package-install 'nix-mode)
   )
 
 (custom-set-variables
@@ -70,6 +71,11 @@
 target, in a compilation buffer."
   (interactive "M'stack exec' target: ")
   (compile (format "stack build && stack exec %s" target)))
+
+;; ----------------------------------------------------------------------
+;; Nix:
+;; ----------------------------------------------------------------------
+(require 'nix-mode)
 
 ;; ----------------------------------------------------------------------
 ;; R (and related):
