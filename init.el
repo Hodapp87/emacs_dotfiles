@@ -11,8 +11,9 @@
   (package-install 'haskell-mode)
   (package-install 'markdown-mode)
   (package-install 'ess)
-  (package-install 'weechat)
+  ;;(package-install 'weechat)
   (package-install 'geiser)
+  (package-install 'paredit)
   (package-install 'nix-mode)
   )
 
@@ -112,12 +113,13 @@ target, in a compilation buffer."
 ;; ----------------------------------------------------------------------
 ;; WeeChat client:
 ;; ----------------------------------------------------------------------
-(require 'weechat)
-(require 'weechat-notifications)
-(require 'notifications)
-(require 'gnutls)
-(setq weechat-notification-mode t)
-(add-to-list 'gnutls-trustfiles (expand-file-name "~/.emacs.d/relay.pem"))
+;; (require 'weechat)
+;; (require 'weechat-notifications)
+;; (require 'notifications)
+;; (require 'gnutls)
+;; (setq weechat-notification-mode t)
+;; (add-to-list 'gnutls-trustfiles (expand-file-name "~/.emacs.d/relay.pem"))
 
+(require 'paredit)
 
 (server-start)
