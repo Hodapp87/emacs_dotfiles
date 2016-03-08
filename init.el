@@ -15,6 +15,8 @@
   (package-install 'geiser)
   (package-install 'paredit)
   (package-install 'nix-mode)
+  (package-install 'scala-mode2)
+  (package-install 'sbt-mode)
   )
 
 (custom-set-variables
@@ -119,6 +121,11 @@ target, in a compilation buffer."
 ;; (require 'gnutls)
 ;; (setq weechat-notification-mode t)
 ;; (add-to-list 'gnutls-trustfiles (expand-file-name "~/.emacs.d/relay.pem"))
+
+;; ----------------------------------------------------------------------
+;; Scala
+;; ----------------------------------------------------------------------
+(require 'sbt-mode)
 
 (require 'paredit)
 
