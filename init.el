@@ -17,6 +17,8 @@
   (package-install 'nix-mode)
   (package-install 'scala-mode2)
   (package-install 'sbt-mode)
+  (package-install 'ensime)
+  (package-install 'lua-mode)
   )
 
 (custom-set-variables
@@ -126,7 +128,18 @@ target, in a compilation buffer."
 ;; Scala
 ;; ----------------------------------------------------------------------
 (require 'sbt-mode)
+(require 'ensime)
+(require 'ensime-mode)
+(add-hook 'scala-mode-hook 'ensime-mode)
+
+;; ----------------------------------------------------------------------
+;; Lua
+;; ----------------------------------------------------------------------
+(require 'lua-mode)
 
 (require 'paredit)
 
-(server-start)
+;; Start server only if one's not already running:
+(if (and (fboundp 'server-running-p) 
+         (not (server-running-p)))
+    (server-start))
