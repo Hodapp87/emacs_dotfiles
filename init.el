@@ -140,6 +140,6 @@ target, in a compilation buffer."
 (require 'paredit)
 
 ;; Start server only if one's not already running:
-(if (and (fboundp 'server-running-p) 
-         (not (server-running-p)))
+(require 'server)
+(or (server-running-p)
     (server-start))
