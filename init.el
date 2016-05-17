@@ -19,6 +19,8 @@
   (package-install 'sbt-mode)
   (package-install 'ensime)
   (package-install 'lua-mode)
+  (package-install 'clojure-mode)
+  (package-install 'cider)
   )
 
 (custom-set-variables
@@ -136,6 +138,11 @@ target, in a compilation buffer."
 ;; Lua
 ;; ----------------------------------------------------------------------
 (require 'lua-mode)
+
+;; ----------------------------------------------------------------------
+;; Clojure
+;; ----------------------------------------------------------------------
+(require 'clojure-mode)
 
 (require 'paredit)
 
