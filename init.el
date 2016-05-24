@@ -146,6 +146,19 @@ target, in a compilation buffer."
 
 (require 'paredit)
 
+;; ----------------------------------------------------------------------
+;; Misc. elisp
+;; ----------------------------------------------------------------------
+;; Courtesy of https://www.emacswiki.org/emacs/MiniBuffer#minibuffer
+(defun switch-to-minibuffer ()
+  "Switch to minibuffer window."
+  (interactive)
+  (if (active-minibuffer-window)
+      (select-window (active-minibuffer-window))
+    (error "Minibuffer is not active")))
+
+(global-set-key "\C-co" 'switch-to-minibuffer)
+
 ;; Start server only if one's not already running:
 (require 'server)
 (or (server-running-p)
