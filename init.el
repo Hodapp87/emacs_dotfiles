@@ -21,6 +21,7 @@
   (package-install 'lua-mode)
   (package-install 'clojure-mode)
   (package-install 'cider)
+  (package-install 'intero)
   )
 
 (custom-set-variables
@@ -65,8 +66,9 @@
 ;; ----------------------------------------------------------------------
 (require 'haskell-mode)
 (setq haskell-process-log t)
-(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+; (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 (defun stack-compile ()
   "Run 'stack build' in a compilation buffer."
