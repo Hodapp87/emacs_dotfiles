@@ -22,6 +22,7 @@
   (package-install 'clojure-mode)
   (package-install 'cider)
   (package-install 'intero)
+  (package-install 'vlf)
   )
 
 (custom-set-variables
@@ -160,6 +161,9 @@ target, in a compilation buffer."
     (error "Minibuffer is not active")))
 
 (global-set-key "\C-co" 'switch-to-minibuffer)
+
+;; Offer VLF on large files:
+(require 'vlf-setup)
 
 ;; Start server only if one's not already running:
 (require 'server)
