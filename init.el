@@ -23,6 +23,7 @@
   (package-install 'cider)
   (package-install 'intero)
   (package-install 'vlf)
+  (package-install 'rust-mode)
   )
 
 (custom-set-variables
@@ -32,7 +33,9 @@
  ;; If there is more than one, they won't work right.
  '(haskell-process-type (quote stack-ghci))
  '(org-agenda-files (quote ("~/notes.git/log2.org")))
-)
+ '(package-selected-packages
+   (quote
+    (rust-mode weechat w3m vlf scala-mode2 paredit nix-mode markdown-mode lua-mode intero geiser ess ensime cider))))
 
 ;; ----------------------------------------------------------------------
 ;; Local elisp files
@@ -137,6 +140,9 @@ target, in a compilation buffer."
 (require 'ensime-mode)
 (add-hook 'scala-mode-hook 'ensime-mode)
 
+;; Whoever turned this on needs to go die in a fire.
+(delete 'company-dabbrev company-backends)
+
 ;; ----------------------------------------------------------------------
 ;; Lua
 ;; ----------------------------------------------------------------------
@@ -148,6 +154,12 @@ target, in a compilation buffer."
 (require 'clojure-mode)
 
 (require 'paredit)
+
+;; ----------------------------------------------------------------------
+;; Rust:
+;; ----------------------------------------------------------------------
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
 ;; ----------------------------------------------------------------------
 ;; Misc. elisp
@@ -169,3 +181,9 @@ target, in a compilation buffer."
 (require 'server)
 (or (server-running-p)
     (server-start))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
