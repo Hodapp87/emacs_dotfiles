@@ -141,7 +141,7 @@ target, in a compilation buffer."
 (add-hook 'scala-mode-hook 'ensime-mode)
 
 ;; Whoever turned this on needs to go die in a fire.
-(delete 'company-dabbrev company-backends)
+;; (delete 'company-dabbrev company-backends)
 
 ;; ----------------------------------------------------------------------
 ;; Lua
