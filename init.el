@@ -139,6 +139,7 @@ target, in a compilation buffer."
 (require 'ensime)
 (require 'ensime-mode)
 (add-hook 'scala-mode-hook 'ensime-mode)
+(setq ensime-startup-snapshot-notification 'nil)
 
 ;; Whoever turned this on needs to go die in a fire.
 ;; (delete 'company-dabbrev company-backends)
