@@ -1,31 +1,3 @@
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
-;; This installs all the packages needed elsewhere.  A better way
-;; probably exists to do this...
-(defun install-all-packages ()
-  (interactive)
-  (package-refresh-contents)
-  (package-install 'haskell-mode)
-  (package-install 'markdown-mode)
-  (package-install 'ess)
-  ;;(package-install 'weechat)
-  (package-install 'geiser)
-  (package-install 'paredit)
-  (package-install 'nix-mode)
-  (package-install 'scala-mode2)
-  (package-install 'sbt-mode)
-  (package-install 'ensime)
-  (package-install 'lua-mode)
-  (package-install 'clojure-mode)
-  (package-install 'cider)
-  (package-install 'intero)
-  (package-install 'vlf)
-  (package-install 'rust-mode)
-  )
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -35,7 +7,7 @@
  '(org-agenda-files (quote ("~/notes.git/log2.org")))
  '(package-selected-packages
    (quote
-    (rust-mode weechat w3m vlf scala-mode2 paredit nix-mode markdown-mode lua-mode intero geiser ess ensime cider))))
+    (unicode-fonts f dash-functional rust-mode weechat w3m vlf scala-mode2 paredit nix-mode markdown-mode lua-mode intero geiser ess ensime cider))))
 
 ;; ----------------------------------------------------------------------
 ;; Local elisp files
@@ -68,11 +40,11 @@
 ;; ----------------------------------------------------------------------
 ;; Haskell:
 ;; ----------------------------------------------------------------------
-(require 'haskell-mode)
-(setq haskell-process-log t)
+; (require 'haskell-mode)
+; (setq haskell-process-log t)
 ; (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 ; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'intero-mode)
+; (add-hook 'haskell-mode-hook 'intero-mode)
 
 (defun stack-compile ()
   "Run 'stack build' in a compilation buffer."
@@ -88,17 +60,17 @@ target, in a compilation buffer."
 ;; ----------------------------------------------------------------------
 ;; Nix:
 ;; ----------------------------------------------------------------------
-(require 'nix-mode)
+; (require 'nix-mode)
 
 ;; ----------------------------------------------------------------------
 ;; R (and related):
 ;; ----------------------------------------------------------------------
-(require 'ess-site)
+; (require 'ess-site)
 
 ;; ----------------------------------------------------------------------
 ;; Markdown:
 ;; ----------------------------------------------------------------------
-(require 'markdown-mode)
+; (require 'markdown-mode)
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
@@ -135,9 +107,9 @@ target, in a compilation buffer."
 ;; ----------------------------------------------------------------------
 ;; Scala
 ;; ----------------------------------------------------------------------
-(require 'sbt-mode)
-(require 'ensime)
-(require 'ensime-mode)
+; (require 'sbt-mode)
+; (require 'ensime)
+; (require 'ensime-mode)
 (add-hook 'scala-mode-hook 'ensime-mode)
 (setq ensime-startup-snapshot-notification 'nil)
 
@@ -147,12 +119,12 @@ target, in a compilation buffer."
 ;; ----------------------------------------------------------------------
 ;; Lua
 ;; ----------------------------------------------------------------------
-(require 'lua-mode)
+; (require 'lua-mode)
 
 ;; ----------------------------------------------------------------------
 ;; Clojure
 ;; ----------------------------------------------------------------------
-(require 'clojure-mode)
+; (require 'clojure-mode)
 
 (require 'paredit)
 
@@ -182,9 +154,3 @@ target, in a compilation buffer."
 (require 'server)
 (or (server-running-p)
     (server-start))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
