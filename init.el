@@ -4,10 +4,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(haskell-process-type (quote stack-ghci))
- '(org-agenda-files (quote ("~/notes.git/log2.org")))
  '(package-selected-packages
    (quote
     (unicode-fonts f dash-functional rust-mode weechat w3m vlf scala-mode2 paredit nix-mode markdown-mode lua-mode intero geiser ess ensime cider))))
+
+(setq org-agenda-files
+      '("~/notes.git/log2.org"
+        "~/notes.git/Orgzly/tasks.org"
+        "~/notes.git/Orgzly/orgzly-notes.org"))
 
 ;; ----------------------------------------------------------------------
 ;; Local elisp files
@@ -154,3 +158,32 @@ target, in a compilation buffer."
 (require 'server)
 (or (server-running-p)
     (server-start))
+
+;; ----------------------------------------------------------------------
+;; Julia
+;; ----------------------------------------------------------------------
+
+(defun assq-delete-all-equal (key pairs)
+  (let ((result ()))
+	(while (not (null pairs))
+	  (if (not (equal key (caar pairs)))
+	      (setq result (cons (car pairs) result)))
+	  (setq pairs (cdr pairs)) )
+	(reverse result)))
+; (setq auto-mode-alist (assq-delete-all-equal "\\.jl\\'" auto-mode-alist))
+
+;(require 'julia-mode)
+;; (add-to-list 'load-path "/home/hodapp/source/julia-shell-mode")
+;(require 'julia-shell)
+;(defun my-julia-mode-hooks ()
+;  (require 'julia-shell))
+;(add-hook 'julia-mode-hook 'my-julia-mode-hooks)
+;(define-key julia-mode-map (kbd "C-c C-c") 'julia-shell-run-region-or-line)
+;(define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
+
+;; ----------------------------------------------------------------------
+;; C/C++
+;; ----------------------------------------------------------------------
+(add-hook 'c++-mode-hook 'company-mode)
+(add-hook 'c-mode-hook 'company-mode)
+(add-hook 'c-mode-common-hook 'company-mode)
