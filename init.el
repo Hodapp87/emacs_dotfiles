@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(haskell-process-type (quote stack-ghci))
+ '(save-interprogram-paste-before-kill t)
  '(package-selected-packages
    (quote
     (unicode-fonts f dash-functional rust-mode weechat w3m vlf scala-mode2 paredit nix-mode markdown-mode lua-mode intero geiser ess ensime cider))))
