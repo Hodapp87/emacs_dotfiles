@@ -1,3 +1,10 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -9,10 +16,28 @@
    (quote
     (unicode-fonts f dash-functional rust-mode weechat w3m vlf scala-mode2 paredit nix-mode markdown-mode lua-mode intero geiser ess ensime cider))))
 
-(setq org-agenda-files
-      '("~/notes.git/log2.org"
-        "~/notes.git/Orgzly/tasks.org"
-        "~/notes.git/Orgzly/orgzly-notes.org"))
+(defun depth_with_text (el)
+  (list (org-element-property :level el) (org-element-property :begin el)))
+
+(defun org-get-headlines (lev)
+  (org-element-map (org-element-parse-buffer)
+      '(headline) ; get only headlines
+    (lambda (el) ; return (level begin-point)
+      (let ((el_lev (org-element-property :level el)))
+        (if (= lev el_lev)
+          (org-element-property :begin el)
+          nil)))))
+
+(defun org-go-to-random-headline (&optional lev)
+  "Go to a random headline in the current org-mode buffer.  A
+  level can optionally be specified; it is set to 3 if not given."
+  (interactive)
+  (let* ((lev           (or lev 3))
+         (headlines     (org-get-headlines lev))
+         (num_headlines (safe-length headlines))
+         (pos           (nth (random num_headlines) headlines)))
+    (goto-char pos)
+    (outline-show-entry)))
 
 ;; ----------------------------------------------------------------------
 ;; Local elisp files
@@ -20,6 +45,7 @@
 ;; From http://www.emacswiki.org/emacs/download/newpaste.el:
 (load "~/.emacs.d/newpaste.el")
 (load "~/.emacs.d/org-invoice.el")
+(load "~/.emacs.d/firehose.el")
 
 ;; ----------------------------------------------------------------------
 ;; Style stuff
@@ -188,3 +214,4 @@ target, in a compilation buffer."
 (add-hook 'c++-mode-hook 'company-mode)
 (add-hook 'c-mode-hook 'company-mode)
 (add-hook 'c-mode-common-hook 'company-mode)
+(c-set-offset 'innamespace 0)
