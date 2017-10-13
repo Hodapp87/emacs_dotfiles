@@ -16,9 +16,6 @@
    (quote
     (unicode-fonts f dash-functional rust-mode weechat w3m vlf scala-mode2 paredit nix-mode markdown-mode lua-mode intero geiser ess ensime cider))))
 
-(defun depth_with_text (el)
-  (list (org-element-property :level el) (org-element-property :begin el)))
-
 (defun org-get-headlines (lev)
   (org-element-map (org-element-parse-buffer)
       '(headline) ; get only headlines
